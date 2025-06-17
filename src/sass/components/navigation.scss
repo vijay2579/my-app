@@ -1,0 +1,23 @@
+$nav-default-color: #000;
+$nav-hover-color: red;
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  background-color: bisque;
+  
+  li {
+    padding: 5px;
+
+    a {
+      text-decoration: none;
+      color: $nav-default-color;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $nav-hover-color;
+      }
+    }
+  }
+}
