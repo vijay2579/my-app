@@ -1,23 +1,31 @@
-const Table = () => {
+const Table = (props) => {
+  const { data, c, setFn } = props;
+  let newData = [];
+  if (c < data.length) {
+    newData = [data[c]];
+  }
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>GMIT</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>UBDT</td>
-          <td>2</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {newData.map((item) => {
+            return (
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.value}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <button onClick={() => setFn(c - 1)}>Decrement Counter</button>
+    </>
   );
 };
 
